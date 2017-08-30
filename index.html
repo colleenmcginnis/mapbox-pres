@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mapbox Mapping 101 Workshop</title>
+    <meta charset='utf-8'>
+    <meta property="og:title" content="Mapbox Mapping 101 Workshop, Mapbox"/>
+    <meta property="og:description" content="Mapbox Mapping 101 Workshop, Mapbox"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link href='big.css' rel='stylesheet' type='text/css' />
+    <script src='big.js'></script>
+</head>
+
+
+<body>
+
+  <!-- INTRO -->
+  <div><ul><a class='highlighter' href="https://twitter.com/amyleew">Mapbox Workshop</a> <em>Geo4Dev</em></ul></div>
+  <div><ul>Hi, we're <em>Hannah, Marena, and Colleen</em><br>
+  from <em>mapbox</em></ul></div>
+  
+  
+  <!-- WORKSHOP INTRO-->
+  <div><ul>Follow along <a class='highlighter-x' href="#">tiny-url-here</a></ul></div>
+  <div><a class='highlighter' href="#">This workshop will cover:</a>
+    <ul class='norm'>
+      <li>The Mapbox platform</li>
+      <li>Mapbox use cases</li>
+      <li>OpenStreetMap</li>
+      <li>Exercise: Visualize data on a map with Mapbox Studio</li>
+    </ul>
+  </div>
+
+
+  <!-- THE MAPBOX PLATFORM -->
+  <div><img src='images/astrowalk.gif' /><ul class='dark'>Mapbox wants to change the way people <em>navigate cities</em> and <em>understand<br>our planet.</em></ul></div>
+  <div><ul>We do this by providing <em>building blocks</em> for integrating brand and location into any <em>mobile</em> or <em>online</em> app.</ul></a></div>
+  <div><img src='images/buildingblocks_liveData.gif' /></div>
+    <div><img src='images/blocks_geocode.gif' />
+    <ul><a class='highlighter-x' href='https://www.mapbox.com/api-documentation/#geocoding'><em>Geocoding API: </em></a><br> 
+    <a class='highlighter-ms' href='#'>transforms customer requested  delivery addresses into a latitude, longitude point.</a></ul></div>
+  <div><img src='images/blocks_turfjs.gif' /><ul><a class='highlighter-x' href='https://www.mapbox.com/blog/mapbox-courier/'><em>Turf.js: </em></a> <br><a class='highlighter-ms' href='#'> pairs request with an available courier and sends an instant notification.</a></ul></div>
+  <div><img src='images/blocks_directions.gif' /><ul><a class='highlighter-x' href='https://www.mapbox.com/api-documentation/#directions'><em>Directions API:</em></a><br> <a class='highlighter-ms' href='#'>generates a route for courier's accepted delivery request.</a></ul></div>
+  <div><img src='images/coremaps.png' /><ul><a class='highlighter-x' href='https://www.mapbox.com/maps/'><em>Beautiful vector maps: </em></a><br> <a class='highlighter-ms' href='#'>mix of performance, science, and design that <em>renders data</em> in real-time.</a></ul></div>
+  
+
+  <!-- APIs & GUIs: Mapbox Studio -->
+  <div><img class='norm' src='images/legoworld_build.jpg' />
+  <ul><a class='highlighter-x' href="#">Mapbox makes APIs that specify how <em>geospatial and navigational</em> app components interact with each other.</a></ul></div>
+  <div><img src='images/mapboxstudio.gif' /><ul><a class='highlighter-x' href="#">Mapbox Studio</a></ul></div>
+  
+  <div><img class='norm' src='images/studio_data.png' /> <ul class='copy'><!-- <a class='highlighter-x' href="#">Mapbox Studio => </a><br> --><a class='highlighter-ms' href="#"><em>Store and maintain geographic datasets </em>(Dataset Editor)  </a> </ul></div>
+  <div><img class='norm' src='images/studio_design.png' /> <ul><!-- <a class='highlighter-x' href="#">Mapbox Studio => </a><br> --><a class='highlighter-ms' href="#"><em>Design custom GL map styles </em>(Styles Editor) </a> </ul></div>
+  <!-- <div><img class='norm' src='images/studio_static.png' /> <ul><a class='highlighter-ms' href="#"><em>Export static map images </em> (Static maps tool) </a> </ul></div> -->
+  <div><a class='highlighter' href="#">Mapbox Studio leverages:</a>
+    <ul>
+      <li><a class='highlighter' href="https://www.mapbox.com/api-documentation/#styles"><em>Styles API</em></a> - read and write map styles, fonts, and icons</li>
+      <li><a class='highlighter' href="https://www.mapbox.com/api-documentation/#uploads"><em>Uploads API</em></a> - transforms geo data sources and files into performant production-ready tilesets</li>
+      <li><a class='highlighter' href="https://www.mapbox.com/api-documentation/#datasets"><em>Datasets API</em></a> - offers persistent storage for custom geo data and allows add and edit features</li>
+      <li><a class='highlighter' href="https://www.mapbox.com/api-documentation/#maps"><em>Maps API</em></a> - serves our raster and vector tiles (aka final maps you see)</li>
+      <li><a class='highlighter' href="https://www.mapbox.com/api-documentation/#static"><em>Static API</em></a> - returns static maps and raster tiles from styles</li>
+      <li><a class='highlighter' href="https://www.mapbox.com/api-documentation/#tilesets"><em>Tileset API</em></a> - stores metadata for raster and vector tilesets</li>
+    </ul>
+  </div>
+
+
+
+  <!-- The structure of interactive maps -->
+  <div><ul><a class='highlighter' href="#">The structure of a <em>Mapbox map</em></a></ul></div>
+  <div><img class='norm' src='images/3parts_style+vt+browser.png' /> <a class='highlighter-w' href="#"><em>Three parts</em></a></div>
+  <div><img class='norm' src='images/style-json2.png' /> <a class='highlighter-w' href="#"><em>1: style.json</em></a></div>
+  <div><img class='norm' src='images/raw_vectortiles2.png' /> <a class='highlighter-w' href="#"><em>2: Vector Tiles</em></a></div>
+  <div><img class='norm' src='images/final_map2.png' /> <a class='highlighter-w' href="#"><em>3: GL JS/ GL Native (the client)</em></a></div>
+  
+
+  
+    <!-- VECTOR TILES -->
+  
+  <div><img class='norm' src='images/data-overview.gif' /><a class='highlighter-ms' href="#">vector tiles</a></div>
+  <div><img src='images/osm-features.png' /><ul><em class='page'><a class='highlighter' href="http://wiki.openstreetmap.org/wiki/Map_Features"><em>Raw OSM map features</em></a></em></ul></div>
+  <div>
+    <ul class='norm'>
+      <li><a class='highlighter' href='https://www.mapbox.com/vector-tiles/mapbox-streets-v7/'>Mapbox Streets data</a></li>
+      <li><a class='highlighter' href='https://www.mapbox.com/vector-tiles/mapbox-terrain/'>Mapbox Terrain data</a></li>
+      <li><a class='highlighter' href='https://www.mapbox.com/vector-tiles/mapbox-traffic-v1/'>Mapbox Traffic data</a></li>
+    </ul>
+  </div>
+  <div><img src='images/layers.png' /><ul><em class='page'><a class='highlighter' href="https://www.mapbox.com/vector-tiles/mapbox-streets-v7/#layer-reference">Mapbox Streets classifications</a></em></ul></div>
+  <div><img src='images/studio.png' /></div>
+  
+
+    <!-- MAP STYLE -->
+    
+  <div><ul><a class='highlighter' href="#"><em>Mapbox Design:</em> general to thematic styles</a></ul></div>
+  <div><img class='norm' src='images/samedataloop.gif' /><ul><a class='highlighter-x' href='https://www.mapbox.com/blog/maps/'><em>Same data : Many styles</em></a></ul></div>
+  <!-- WHAAM! map -->
+  <div><img class='norm' src='images/whaam1.png' /></div>
+  <div><img class='norm' src='images/whaam1b.png' /></div>
+  <div><img class='norm' src='images/whaam2.png' /></div>
+  <div><img class='norm' src='images/whaam3.png' /></div>
+  <div><img class='norm' src='images/swiss-research.png' /></div>
+  <div><img class='norm' src='images/swiss-research1.png' /></div>
+  <div><img class='norm' src='images/swiss-research2.png' /></div>
+  <div><img class='norm' src='images/swiss2.png' /></div>
+  <div><img class='norm' src='images/swiss3.png' /></div>
+  <div><img class='norm' src='images/swiss4.png' /></div>
+  <div><img class='norm' src='images/interactivity.gif' /></div>
+  
+  
+  
+  <!-- MAPBOX STUDIO UI -->
+  <div><ul><a class='highlighter' href="#"><em>Mapbox Studio <br></em> interface overview</a></ul></div>
+  <div><ul>Navigate to <br><a class='highlighter' href='https://www.mapbox.com/studio/styles/'>Mapbox Studio</a></ul></div>
+  <div>
+    <ul>
+      <li><a href='https://www.mapbox.com/studio/styles/'>Styles</a> - core styles + style editor</li>
+      <li><a href='https://www.mapbox.com/studio/tilesets/'>Tilesets</a> - Mapbox curated map data</li>
+      <li><a href='https://www.mapbox.com/studio/datasets/'>Datasets</a> - create, add, and maintain custom data</li>
+      <li><a href='https://www.mapbox.com/studio/stats/'>Stats</a> - map views and referrers</li>
+      <li><a href='https://www.mapbox.com/studio/'>My access tokens</a> - key to unlocking APIs</li>
+  </div>
+  
+    <!-- MAPBOX CORE STYLES -->
+  <div>
+    <ul>
+      <li><a class='highlighter' href='https://api.mapbox.com/styles/v1/mapbox/streets-v10.html?title=false&access_token=pk.eyJ1IjoibXNsZWUiLCJhIjoiclpiTWV5SSJ9.P_h8r37vD8jpIH1A6i1VRg#1.79/22.4/-51.4'>Mapbox Streets</a> - a complete basemap, perfect for incorporating your own custom data.</li>
+      <li><a class='highlighter' href='https://api.mapbox.com/styles/v1/mapbox/outdoors-v10.html?title=false&access_token=pk.eyJ1IjoibXNsZWUiLCJhIjoiclpiTWV5SSJ9.P_h8r37vD8jpIH1A6i1VRg#1.79/22.4/-51.4'>Mapbox Outdoors</a> - a general basemap tailored to hiking, biking, and sport. </li>
+      <li><a class='highlighter' href='https://api.mapbox.com/styles/v1/mapbox/dark-v9.html?title=false&access_token=pk.eyJ1IjoibXNsZWUiLCJhIjoiclpiTWV5SSJ9.P_h8r37vD8jpIH1A6i1VRg#1.79/22.4/-51.4'>Mapbox Dark</a> - simple, clean map with a dark backdrop. Well-suited for data visualizations. </li>
+      <li><a class='highlighter' href='https://api.mapbox.com/styles/v1/mapbox/light-v9.html?title=false&access_token=pk.eyJ1IjoibXNsZWUiLCJhIjoiclpiTWV5SSJ9.P_h8r37vD8jpIH1A6i1VRg#1.79/22.4/-51.4'>Mapbox Light</a> - simple, clean map with a light backdrop. Well-suited for data visualizations.</li>
+      <li><a class='highlighter' href='https://api.mapbox.com/styles/v1/mapbox/satellite-streets-v9.html?title=false&access_token=pk.eyJ1IjoibXNsZWUiLCJhIjoiclpiTWV5SSJ9.P_h8r37vD8jpIH1A6i1VRg#1.79/22.4/-51.4'>Mapbox Satellite Streets</a> - global imagery enhanced with road and label hierarchy. </li>
+      <li><a class='highlighter' href='https://api.mapbox.com/styles/v1/mapbox/traffic-day-v1.html?title=false&access_token=pk.eyJ1IjoibXNsZWUiLCJhIjoiclpiTWV5SSJ9.P_h8r37vD8jpIH1A6i1VRg#1.79/22.4/-51.4'>Mapbox Traffic Day</a> - traffic on a light streets basemap that highlights congestion. </li>
+      <li><a class='highlighter' href='https://api.mapbox.com/styles/v1/mapbox/traffic-night-v1.html?title=false&access_token=pk.eyJ1IjoibXNsZWUiLCJhIjoiclpiTWV5SSJ9.P_h8r37vD8jpIH1A6i1VRg#1.79/22.4/-51.4'>Mapbox Traffic Night</a> - Traffic on a dark streets basemap that highlights congestion. </li>
+    </ul>
+  </div>
+  
+
+
+  
+  <!-- DEMO: START STUDIO WITH BLANK MAP -->
+  <div><ul>Launch the <a class='highlighter' href='#'>Mapbox Studio style editor</a> and start a <em>blank map.</em></ul></div>
+  <div><ul><a href='#' class='highlighter-w'><em>Studio style exercise</em></a><br></ul>
+    <ul class='norm'>
+      <li>Style background.</li>
+      <li>Add and style water layer.</li>
+      <li>Add and style road layer.</li>
+      <li>Filter road layer.</li>
+      <li>Add and style place labels.</li>
+      <li>Filter place labels.</li>
+    </ul>
+  </div>
+  <div><ul><a class='highlighter' href='#'>Save map style</a></ul></div>
+  <div><ul><a class='highlighter' href='https://api.mapbox.com/styles/v1/mslee/cj0obwm1700872smpb8y9qqdh.html?title=false&access_token=pk.eyJ1IjoibXNsZWUiLCJhIjoiclpiTWV5SSJ9.P_h8r37vD8jpIH1A6i1VRg#1.34/-4.6/-102.7'>View <em>share URL</em></a></ul></div>
+  <div><ul><a class='highlighter' href='#'>Hello <em>styles API</em></a></ul></div>
+  <div><ul><a class='highlighter' href='https://api.mapbox.com/styles/v1/mapbox/streets-v10?title=false&access_token=pk.eyJ1IjoibXNsZWUiLCJhIjoiclpiTWV5SSJ9.P_h8r37vD8jpIH1A6i1VRg#1.07/2.7/-15.1'>View <em>style.json</em></a></ul></div>
+    <div><ul><a class='highlighter' href='https://www.mapbox.com/mapbox-gl-js/style-spec/'>Mapbox <br><em>GL style spec</em></a></ul></div>
+    <div><ul><a href='https://www.mapbox.com/mapbox-gl-js/api/' class='highlighter'><em>GL JS API</em></a></ul></div>
+    <div>
+    <ul class='norm'>
+      <li><a href='https://www.mapbox.com/mapbox-gl-js/api/#map'>Map object</a></li>
+      <li><a href='https://www.mapbox.com/mapbox-gl-js/api/#geography & geometry'>camera options</a></li>
+      <li><a href='https://www.mapbox.com/mapbox-gl-js/api/#user interface'>UI/events</a></li>
+      <li><a href='https://www.mapbox.com/mapbox-gl-js/api/#sources'>sources</a></li>
+    </ul>
+  </div>
+  <div><ul><a href='https://www.mapbox.com/mapbox-gl-js/examples/' class='highlighter'><em>GL JS examples</em></a></ul></div>
+
+  
+<!-- OUTRO -->
+<div><ul>thank you.<br> <em>happy mapping!</em> </ul></div>
+<div><ul><a class='highlighter' href="#"><em>Hannah, Marena, and Colleen</em></a><br>
+  from <em>mapbox</em></ul></div>
+</body>
+
+
+<script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '4e36eb1ef5a1f53d6f000001');
+    t.src = '//secure.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+</html>
