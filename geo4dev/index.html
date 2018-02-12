@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mapbox Mapping 101 Workshop</title>
+    <meta charset='utf-8'>
+    <meta property="og:title" content="Mapbox Mapping 101 Workshop, Mapbox"/>
+    <meta property="og:description" content="Mapbox Mapping 101 Workshop, Mapbox"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link href='../big.css' rel='stylesheet' type='text/css' />
+    <script src='../big.js'></script>
+</head>
+
+
+<body>
+
+  <!-- INTRO -->
+  <div><ul>Mapbox Workshop <em>Geo4Dev</em></ul></div>
+  <div><ul>Hi, we're <em>Hannah, Marena, and Colleen</em><br>
+  from <a href='https://www.mapbox.com/' class='highlighter'>Mapbox</a></ul></div>
+
+
+  <!-- WORKSHOP INTRO-->
+  <div><ul>Follow along <a class='highlighter' href="http://bit.ly/2eKiF0x">http://bit.ly/2eKiF0x</a></ul></div>
+  <div>This workshop will cover:
+    <ul class='norm'>
+      <li>The Mapbox platform</li>
+      <li>Mapbox use cases</li>
+      <li>OpenStreetMap</li>
+      <li>Exercise: Visualize data on a map with Mapbox Studio</li>
+    </ul>
+  </div>
+
+
+  <!-- THE MAPBOX PLATFORM -->
+  <div><img src='../images/astrowalk.gif' /><ul class='dark'>Mapbox wants to change the way people <em>navigate cities</em> and <em>understand<br>our planet.</em></ul></div>
+  <div><ul>We do this by providing <em>building blocks</em> for integrating brand and location into any <em>mobile</em> or <em>online</em> app.</ul></a></div>
+  <div><img src='../images/buildingblocks_liveData.gif' /></div>
+    <div><img src='../images/blocks_geocode.gif' />
+    <ul><a class='highlighter-x' href='https://www.mapbox.com/api-documentation/#geocoding'><em>Geocoding API: </em></a><br>
+    <a class='highlighter-ms' href='#'>transforms customer requested  delivery addresses into a latitude, longitude point.</a></ul></div>
+  <div><img src='../images/blocks_turfjs.gif' /><ul><a class='highlighter-x' href='https://www.mapbox.com/blog/mapbox-courier/'><em>Turf.js: </em></a> <br><a class='highlighter-ms' href='#'> pairs request with an available courier and sends an instant notification.</a></ul></div>
+  <div><img src='../images/blocks_directions.gif' /><ul><a class='highlighter-x' href='https://www.mapbox.com/api-documentation/#directions'><em>Directions API:</em></a><br> <a class='highlighter-ms' href='#'>generates a route for courier's accepted delivery request.</a></ul></div>
+  <div><img src='../images/coremaps.png' /><ul><a class='highlighter-x' href='https://www.mapbox.com/maps/'><em>Beautiful vector maps: </em></a><br> <a class='highlighter-ms' href='#'>mix of performance, science, and design that <em>renders data</em> in real-time.</a></ul></div>
+  <div><img class='norm' src='../images/legoworld_build.jpg' />
+  <ul><a class='highlighter-x' href="#">Mapbox makes APIs that specify how <em>geospatial and navigational</em> app components interact with each other.</a></ul></div>
+
+<!-- APIs & GUIs: Mapbox Studio -->
+  <div><img class='norm' src='../images/studio_data.png' /> <ul class='copy'><!-- <a class='highlighter-x' href="#">Mapbox Studio => </a><br> --><a class='highlighter-ms' href="#"><em>Store and maintain geographic datasets </em>(Dataset Editor)  </a> </ul></div>
+  <div><img class='norm' src='../images/studio_design.png' /> <ul><!-- <a class='highlighter-x' href="#">Mapbox Studio => </a><br> --><a class='highlighter-ms' href="#"><em>Design custom GL map styles </em>(Style Editor) </a> </ul></div>
+  <!-- <div><img class='norm' src='../images/studio_static.png' /> <ul><a class='highlighter-ms' href="#"><em>Export static map images </em> (Static maps tool) </a> </ul></div> -->
+  <div><a class='highlighter' href="#">Mapbox Studio leverages:</a>
+    <ul>
+      <li><a class='highlighter' href="https://www.mapbox.com/api-documentation/#styles"><em>Styles API</em></a> - read and write map styles, fonts, and icons</li>
+      <li><a class='highlighter' href="https://www.mapbox.com/api-documentation/#uploads"><em>Uploads API</em></a> - transforms geo data sources and files into performant production-ready tilesets</li>
+      <li><a class='highlighter' href="https://www.mapbox.com/api-documentation/#datasets"><em>Datasets API</em></a> - offers persistent storage for custom geo data and allows add and edit features</li>
+      <li><a class='highlighter' href="https://www.mapbox.com/api-documentation/#maps"><em>Maps API</em></a> - serves our raster and vector tiles (aka final maps you see)</li>
+      <li><a class='highlighter' href="https://www.mapbox.com/api-documentation/#static"><em>Static API</em></a> - returns static maps and raster tiles from styles</li>
+      <li><a class='highlighter' href="https://www.mapbox.com/api-documentation/#tilesets"><em>Tileset API</em></a> - stores metadata for raster and vector tilesets</li>
+    </ul>
+  </div>
+
+   <!-- The structure of interactive maps -->
+  <div><ul>The structure of a <em>Mapbox map</em></ul></div>
+  <div><img class='norm' src='../images/final_map2.png' /> <a class='highlighter-w' href="#"><em>3: GL JS/ GL Native (the client)</em></a></div>
+   <div><img class='norm' src='../images/raw_vectortiles2.png' /> <a class='highlighter-w' href="#"><em>2: Vector Tiles</em></a></div>
+  <div><img class='norm' src='../images/style-json2.png' /> <a class='highlighter-w' href="#"><em>1: style.json</em></a></div>
+  <div><img class='norm' src='../images/3parts_style+vt+browser.png' /> <a class='highlighter-w' href="#"><em>Three parts</em></a></div>
+
+ <!-- Examples -->
+  <div><img src="https://dl.dropboxusercontent.com/s/owqejarabft35oi/geo4dev_drilling.gif" style="width:100%; height:100% top:0; left:0;"></div>
+  <div><a class='highlighter' href="https://blog.mapbox.com/business-intelligence-data-drill-down-c3256857b658"><em>Drilling (all the way) down demo</em></a>
+    <ul>
+      <li><a class='highlighter' href="https://www.mapbox.com/api-documentation/#retrieve-features-from-vector-tiles"><em>Tile Query API</em></a> - retrieve data about specific features at a specified location within a vector tileset</li>
+      <li><a class='highlighter' href="https://www.mapbox.com/mapbox-gl-js/api/"><em>Mapbox GL JS</em></a> - a JavaScript library that uses WebGL to render interactive maps from vector tiles and Mapbox styles</li>
+    </ul>
+  </div>
+
+  <div><img src="https://dl.dropboxusercontent.com/s/k79ix1sux8q282t/geo4dev_ccusa.gif" style="width:100%; height:100% top:0; left:0;"></div>
+  <div><a class='highlighter' href="https://blog.mapbox.com/mapping-for-disaster-relief-after-hurricane-harvey-f547160e1fc"><em>Catholic Charities USA Disaster Operations Map</em></a>
+    <ul>
+      <li><a class='highlighter' href="https://www.mapbox.com/mapbox-gl-js/api/"><em>Mapbox GL JS</em></a> - a JavaScript library that uses WebGL to render interactive maps from vector tiles and Mapbox styles</li>
+      <li><a class='highlighter' href="https://blog.mapbox.com/visualize-the-usas-economic-recovery-with-client-side-data-joins-2aeab23ee9b0"><em>Client-side data joins</em></a> - a JavaScript library that uses WebGL to render interactive maps from vector tiles and Mapbox styles</li>
+      <li><a class='highlighter' href="https://d3js.org/"><em>D3.js</em></a> - build a simple data query and join it with the map geometry</li>
+    </ul>
+   </div>
+
+  <div><img src="https://dl.dropboxusercontent.com/s/75hvhhwvlzzids5/geo4dev_trees.gif" style="width:100%; height:100% top:0; left:0;"></div>
+  <div><a class='highlighter' href="https://www.mapbox.com/analysis-demos/trees/"><em>Street trees in Manhattan</em></a>
+    <ul>
+      <li><a class='highlighter' href="https://github.com/mapbox/mapbox-gl-draw"><em>GL Draw</em></a> - a plugin for drawing using GL JS</li>
+      <li><a class='highlighter' href="https://www.mapbox.com/mapbox-gl-js/api/"><em>Mapbox GL JS</em></a> - a JavaScript library that uses WebGL to render interactive maps from vector tiles and Mapbox styles</li>
+    </ul>
+  </div>
+
+  <div><img src="https://dl.dropboxusercontent.com/s/2flz7ngj289rsqu/geo4dev_nyc.gif" style="width:100%; height:100% top:0; left:0;"></div>
+  <div><a class='highlighter' href="https://www.mapbox.com/analysis-demos/nyc-attractions/#14/40.7268/-74.0015"><em>Explore NYC attractions</em></a>
+    <ul>
+      <li><a class='highlighter' href="http://turfjs.org/docs/"><em>Turf.js</em></a> - open-source JavaScript library that implements common geospatial operations</li>
+      <li><a class='highlighter' href="https://www.mapbox.com/mapbox-gl-js/api/"><em>Mapbox GL JS</em></a> - a JavaScript library that uses WebGL to render interactive maps from vector tiles and Mapbox styles</li>
+    </ul>
+  </div>
+
+  <div><img src="https://dl.dropboxusercontent.com/s/l9qlrc0atvj2spt/geo4dev_pop.gif" style="width:100%; height:100% top:0; left:0;"></div>
+  <div><a class='highlighter' href="https://blog.mapbox.com/dive-into-large-datasets-with-3d-shapes-in-mapbox-gl-c89023ef291"><em>3D Population</em></a>
+    <ul>
+      <li><a class='highlighter' href="https://blog.mapbox.com/visualize-the-usas-economic-recovery-with-client-side-data-joins-2aeab23ee9b0"><em>Client-side data joins</em></a> - a JavaScript library that uses WebGL to render interactive maps from vector tiles and Mapbox styles</li>
+      <li><a class='highlighter' href="https://www.mapbox.com/mapbox-gl-js/api/"><em>Mapbox GL JS</em></a> - a JavaScript library that uses WebGL to render interactive maps from vector tiles and Mapbox styles</li>
+    </ul>
+  </div>
+
+  <div><img src="https://dl.dropboxusercontent.com/s/8m4pdfh8o1j2or1/geo4dev_isochrones.gif" style="width:100%; height:100% top:0; left:0;"></div>
+  <div><a class='highlighter' href="https://blog.mapbox.com/add-isochrones-to-your-next-application-e9e84a62345f"><em>Isochrones demo</em></a>
+    <ul>
+      <li><a class='highlighter' href="https://github.com/mapbox/mapbox-isochrone"><em>Open-source library</em></a> - use the Matrix API to generate isochrones</li>
+      <li><a class='highlighter' href="https://www.mapbox.com/mapbox-gl-js/api/"><em>Mapbox GL JS</em></a> - a JavaScript library that uses WebGL to render interactive maps from vector tiles and Mapbox styles</li>
+    </ul>
+  </div>
+ 
+
+  <!-- OSM -->
+    <div><img src='../images/osm_berkeley.png' /><ul><a class='highlighter-x' href="#">OpenStreetMap</a></ul></div>
+    <div><img src='../images/osm_nairobi.png' /><ul><a class='highlighter-x' href="#">OpenStreetMap is an initiative to create and provide free geographic data to anyone<br>www.openstreetmap.org</a></ul></div>
+    <div><img src='../images/osm_globe.png' /><ul><a class='highlighter-x' href="#">Over 4.1 million users and<br>over 5 billion uploaded GPS points</a></ul></div>
+    <div><img src='../images/osm_heart.jpg' /><ul><a class='highlighter-x' href="#">Mapbox and OSM </a></ul></div>
+    <div><img class='norm' src='../images/Edit_OSM.png' /></div>
+    <div><img src='../images/HOT.png' /><ul><a class='highlighter-x' href="#">Humanitarian OpenStreetMap Team uses OSM data to help<br>emergency response efforts around the world<br>hotosm.org</a></ul></div>
+    <div><img src='../images/missing_maps.png' /><ul><a class='highlighter-x' href="#">Missing Maps adds the most<br>vulnerable places in the<br>developing world to OSM<br>to aid crisis response.<br>missingmaps.org</a></ul></div>
+    <div><img class='norm' src='../images/HOT-process.png' /></div>
+    <div><img src='../images/Haiti_HOT.png' /></div>
+    <div><img class='norm' src='../images/malaria.gif' /></div>
+
+    <!-- DEMO: START STUDIO WITH BLANK MAP -->
+    <div><ul>Workshop!</ul></div>
+    <div><a href='http://colleenmcginnis.com/mapbox-pres/demo/data-visualization/' class='highlighter'>Here's what you'll be making today.</a></div>
+    <div>Here's what you'll need to get started:<ul>
+      <li>Sign up for a <a href='https://www.mapbox.com/studio'>Mapbox Studio account</a></li>
+      <li>Download <a href='https://drive.google.com/file/d/0B4y7xEw5VPKRWlluRzBHejAzRWs/view?usp=sharing'>GeoJSON data</a></li>
+      <li>View <a href='https://www.mapbox.com/mapbox-gl-js/examples/'>Mapbox GL JS examples</a></li>
+      <li>Start a new <a href='http://jsbin.com/'>JS Bin project</a></li>
+    </ul></div>
+
+    <!-- OUTRO -->
+    <div><ul>thank you.<br> <em>happy mapping!</em> </ul></div>
+    <div><ul><a class='highlighter' href="#"><em>Hannah, Marena, and Colleen</em></a><br>
+      from <em>Mapbox</em></ul></div>
+  </body>
+
+
+<script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '4e36eb1ef5a1f53d6f000001');
+    t.src = '//secure.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+</html>
