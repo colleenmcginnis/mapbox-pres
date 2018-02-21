@@ -1,7 +1,9 @@
+/* #273D56,#273d56,#4264fb,#FFFFFF,#273d56,#FFFFFF,#33c377,#ee4e8b */
+
 body {
   font-family: 'Helvetica';
   letter-spacing: 0.75px;
-  background:#4569F1;
+  background:#273d56;
   background-size: 100%;
   color:#fff;
   margin:0;
@@ -32,7 +34,7 @@ ul.dark2 {
   line-height: 120%;
   font-style: italic;
   font-weight: 100;
-  color: 	#82CBEC;
+  color: 	#33c377;
   margin-top: -30px;
 }
 
@@ -43,7 +45,7 @@ ul.dark {
   line-height: 120%;
   font-style: italic;
   font-weight: 100;
-  color: 	#82CBEC;
+  color: 	#33c377;
   margin-top: -30px;
 }
 
@@ -90,21 +92,17 @@ ol.mini li {
 /* bold font */
 em, a {
   font-weight: 500;
-  /* merriweather blue */
-  color: 	#82CBEC;
+  color: 	#33c377;
 }
 
-/* bold font as blue link */
 em, a.highlighter {
-  color: 	#82CBEC;
+  color: 	#33c377;
 }
-
 
 /* bold font */
 em.page, a {
   font-weight: 500;
-  /* merriweather blue */
-  color: 	#82CBEC;
+  color: 	#33c377;
   font-size: 40px;
   line-height: 60%;
 }
@@ -113,8 +111,7 @@ em.page, a {
 /* thin spaced font */
 em.subhead {
   font-weight: 200;
-  /* merriweather blue */
-  color: 	#82CBEC;
+  color: 	#33c377;
   letter-spacing: -0.75px;
   font-style: normal;
   font-size: 40px;
@@ -132,8 +129,8 @@ a {
 
 /* highlighter */
 a.highlighter {
-  background: #fff;
-  color:#444;
+  background: #ee4e8b;
+  color:#fff;
   text-decoration: none;
   line-height: 120%;
   padding-left: 10px;
@@ -267,6 +264,16 @@ img.norm {
 
 img.norepeat {
   background-repeat: no-repeat;
+}
+
+img.center {
+  display: block;
+   margin-left: auto;
+   margin-right: auto;
+ }
+
+img.small {
+  width: 50%;
 }
 
 div.italic {
