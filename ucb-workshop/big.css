@@ -1,9 +1,9 @@
-/* #273D56,#273d56,#4264fb,#FFFFFF,#273d56,#FFFFFF,#33c377,#ee4e8b */
+/* #273D56,#273d56,#4264fb,#FFFFFF,#273d56,#FFFFFF,#33c377,#a0aeeb */
 
 body {
   font-family: 'Helvetica';
   letter-spacing: 0.75px;
-  background:#273d56;
+  background: #273d56;
   background-size: 100%;
   color:#fff;
   margin:0;
@@ -129,7 +129,7 @@ a {
 
 /* highlighter */
 a.highlighter {
-  background: #ee4e8b;
+  background: #a0aeeb;
   color:#fff;
   text-decoration: none;
   line-height: 120%;
@@ -303,11 +303,23 @@ div.center {
 
 span.textOnImage {
     position: absolute;
-    font-size: 50%;
-    color: #ee4e8b;
+    font-size: 40%;
+    color: #a0aeeb;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    padding: 50px;
+
+}
+
+span.longTextOnImage {
+    position: absolute;
+    font-size: 30%;
+    color: #a0aeeb;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 50px;
 }
 
 div.imageText {

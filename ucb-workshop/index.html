@@ -9,7 +9,7 @@
     <link href='./big.css' rel='stylesheet' type='text/css' />
     <script src='./big.js'></script>
 </head>
-<body>
+<body class=''>
   <!-- INTRO -->
   <div>
     <ul>Mapbox Workshop <em>Geospatial Innovation Facility</em></ul>
@@ -17,7 +17,6 @@
   </div>
   <div><ul>Hi, we're <em>Colleen and Mal</em><br>
   from <a href='https://www.mapbox.com/' class='highlighter'>Mapbox</a></ul></div>
-
 
   <!-- WORKSHOP INTRO-->
   <div><ul>Follow along <a class='highlighter' href="http://bit.ly/2eKiF0x">http://bit.ly/2eKiF0x</a></ul></div>
@@ -31,8 +30,14 @@
   </div>
 
   <!-- What's possible with Mapbox -->
-  <div><img src='../images/astrowalk.gif' /><ul class='dark'>Mapbox wants to change the way people <em>navigate cities</em> and <em>understand<br>our planet.</em></ul></div>
-  <div><ul>We do this by provixding <em>building blocks</em> for integrating brand and location into any <em>mobile</em> or <em>online</em> app.</ul></a></div>
+  <div>Mapbox wants to change the way people <em>navigate cities</em> and <em>understand<br>our planet.</em></div>
+  <div>We do this by providing <em>building blocks</em> for integrating brand and location into any <em>mobile</em> or <em>online</em> app.</a></div>
+
+  <!--Customer examples -->
+  <div><img class='norepeat' src='../images/FCC.png'></div>
+  <div><img class='norepeat' src='../images/nps.png'></div>
+  <div><img class='norepeat' src='../images/lonely-planet.png'></div>
+
   <div>Maps<br>Search<br> Navigation<br>
     <img class= 'center small' src = '../images/alien-artist.png'>
   </div>
@@ -44,10 +49,12 @@
   <div><img src='../images/studio-demo.png'></div>
 
   <!-- Search -->
-  <div><img class='norm' src='../images/blocks_geocode.gif'></div>
-
+  <div><img class='norm' src='../images/blocks_geocode.gif'><span class='textOnImage'>Search.</span></div>
+  <div><img src='../images/forward-geocoding.gif'></div>
 
   <!-- Navigation -->
+  <div><img class='bg' src='../images/navigation.gif'><span class='longTextOnImage'>Navigation.</span></div>
+  <diV><img src='../images/navigation-app.png'></div>
 
     <!-- Workshop! -->
 
@@ -56,18 +63,11 @@
     <div><a href='http://colleenmcginnis.com/mapbox-pres/demo/choropleth/' class='highlighter'>Here's what you'll be making today.</a></div>
     <div>Here's what you'll need to get started:<ul>
       <li>Sign up for a <a href='https://www.mapbox.com/studio'>Mapbox Studio account</a></li>
-      <li>Download <a href='https://www.mapbox.com/help/demos/choropleth-studio-gl/stateData.geojson'>GeoJSON data</a></li>
+      <li>Download <a href='./households_per_facility.geojson' download>GeoJSON data</a></li>
 
     </ul></div>
 
-    <!-- Adding data to a map style -->
-    <div>Adding data to a map style
-      <ul>
-        <li>Export the dataset to a tileset</li>
-        <li>Add the tileset to a new style</li>
-        <li>Create a new layer within the style for the tileset</li>
-      </ul>
-    </div>
+  <!--Overview of Mapbox Studio -->
 
     <!-- Style that map! -->
 
