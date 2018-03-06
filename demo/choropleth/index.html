@@ -64,7 +64,7 @@
 
 <div id='map'></div>
 // div to display map title
-<div class='map-overlay' id='features'><h2>Households per health care facility</h2><div id='pd'><p>Hover over a district!</p></div></div>
+<div class='map-overlay' id='features'><h2>Households per health care facility:</h2><div id='inner-text'><p>Hover over a district!</p></div></div>
 <div class='map-overlay' id='legend'></div>
 
 <script>
@@ -76,7 +76,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFsLXdvb2QiLCJhIjoiY2oyZ2t2em50MDAyMzJ3cnltM
 var map = new mapboxgl.Map({
     container: 'map', // container id
     style: 'mapbox://styles/mal-wood/cjdqous491oug2ro5885tbt1b', // map style URL from Mapbox Studio
-    center: [-9.278518, 6.418433], // map center point
+    center: [-9.2, 6.4], // map center point
     zoom: 7 // starting zoom level
 });
 
@@ -113,9 +113,9 @@ map.on('load', function() {
         });
 
         if (households.length > 0) {
-            document.getElementById('pd').innerHTML = "<h3><strong>" + households[0].properties.DNAME + "</strong></h3><p><strong><em>" + households[0].properties.hh_per_fac + "</strong> households per health care facility</em></p>";
+            document.getElementById('inner-text').innerHTML = "<h3><strong>" + households[0].properties.DNAME + "</strong></h3><p><strong><em>" + households[0].properties.hh_per_fac + "</strong> households per health care facility</em></p>";
         } else {
-            document.getElementById('pd').innerHTML = '<p>Hover over a district!</p>';
+            document.getElementById('inner-text').innerHTML = '<p>Hover over a district!</p>';
         }
     });
 
