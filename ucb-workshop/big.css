@@ -27,6 +27,11 @@ h1, h2, h3, p {
   margin:0;
 }
 
+p {
+  font-size: 60px;
+  line-height: 80px; 
+}
+
 ul.dark2 {
   font-size: 80%;
   font-weight: bold;
@@ -253,6 +258,12 @@ img.norm {
   position: fixed;
   top: 0;
   left: 0;
+}
+
+iframe {
+  margin-top: 60px;
+  width: 90%;
+  height:800px;
 }
 
 @media screen and (max-width: 1024px) { /* Specific to this particular image */
