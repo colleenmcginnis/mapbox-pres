@@ -34,7 +34,8 @@
   <div>We do this by providing <em>building blocks</em> for integrating brand and location into any <em>mobile</em> or <em>online</em> app.</a></div>
 
   <!--Customer examples -->
-  <div><img class='norepeat' src='../images/FCC.png'></div>
+  <div><img class='norepeat' src='../images/instacart.png'></div>
+    <div><img class='norepeat' src='../images/tableau.png'></div>
   <div><img class='norepeat' src='../images/nps.png'></div>
   <div><img class='norepeat' src='../images/lonely-planet.png'></div>
 
@@ -73,14 +74,26 @@
     <!-- Add some interaction with GL JS-->
   <div>Add interactivity using <em>Mapbox GL JS</em>, our Javascript library</div>
   <div>
-    <ol> What we will be adding:
+    <ol> What we will building:
       <li>Display showing the # of households per facility when you hover over each district </li>
       <li>A legend to describing what the colors represent </li>
     </ol>
+    <img class='mid center' src='../images/gl-js-features.png'>
   </div>
   <div>To get started copy the code <a href="https://www.mapbox.com/mapbox-gl-js/example/simple-map/">within this example</a> and paste it into a new <a href="https://jsfiddle.net/">JSFiddle</a> project.
   </div>
   <div>
+    Adds HTML elements for map features
+    <xmp>
+      <div class='map-overlay' id='features'>
+        <h2>Households per health care facility:</h2>
+        <div id='inner-text'>Hover over a district!</div>
+      </div>
+      <div class='map-overlay' id='legend'></div>
+    </xmp>
+  </div>
+  <div>
+    <h2>Adds style (CSS) for legend and box to show features</h2>
     <xmp>
       .map-overlay {
             position: absolute;
@@ -125,7 +138,8 @@
         }
     </xmp>
   </div>
-  <div>
+  <div class='textPadding'>
+    <h3>Adds box to show number of households per health care facility</h3>
     <xmp>
         map.on('load', function(){
           map.on('mousemove', function (e) {
@@ -136,7 +150,8 @@
             if (households.length > 0) {
               document.getElementById('pd').innerHTML = "<h3><strong>" +
                 households[0].properties.DNAME + "</strong></h3><p><strong><em>" +
-                  households[0].properties.hh_per_fac + "</strong> households per health care facility</em></p>";
+                  households[0].properties.hh_per_fac + "</strong> households per
+                   health care facility</em></p>";
                 } else {
                   document.getElementById('pd').innerHTML = '<p>Hover over a district!</p>';
                 }
@@ -145,8 +160,26 @@
     </xmp>
   </div>
 <div>
-  <xmp>var layers = ['0-700', '700-1400', '1400-2100', '2100-2800', '2800-3500', '3500-4200', '4200-4900', '4900-5600', '5600+'];
-  var colors = ['#f7fcfd', 'e0ecf4', '#bfd3e6', '#9ebcda', '#8c96c6', '#8c6bb1', '#88419d', '#810f7c', '#4d004b'];</xmp>
+  Adds legend
+  <xmp>    // define layer names
+      var layers = ['0-700', '700-1400', '1400-2100', '2100-2800', '2800-3500', '3500-4200', '4200-4900', '4900-5600', '5600+'];
+      var colors = ['#f7fcfd', 'e0ecf4', '#bfd3e6', '#9ebcda', '#8c96c6', '#8c6bb1', '#88419d', '#810f7c', '#4d004b'];
+
+      // create legend
+      for (i=0; i<layers.length; i++) {
+          var layer = layers[i];
+          var color = colors[i];
+          var item = document.createElement('div');
+          var key = document.createElement('span');
+          key.className = 'legend-key';
+          key.style.backgroundColor = color;
+
+          var value = document.createElement('span');
+          value.innerHTML = layer;
+          item.appendChild(key);
+          item.appendChild(value);
+          legend.appendChild(item);
+      }</xmp>
 </div>
     <!--Turf.js -->
 

@@ -276,6 +276,10 @@ img.small {
   width: 30%;
 }
 
+img.mid {
+  width: 40%;
+}
+
 div.italic {
   font-family: 'Kievit Offc Pro';
   letter-spacing:-2px;
@@ -326,6 +330,9 @@ div.imageText {
   text-shadow:0px 0px 5px rgba(0,0,0,0.2);
 }
 
+div.textPadding {
+  padding: 200px;
+}
 
 notes {
     display:none;
