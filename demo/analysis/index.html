@@ -1,95 +1,109 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset='utf-8' />
-        <title></title>
-        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-        <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>   
-        <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.39.1/mapbox-gl.js'></script>
-        <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.39.1/mapbox-gl.css' rel='stylesheet' />
-        <link href="https://api.mapbox.com/mapbox-assembly/v0.17.0/assembly.min.css" rel="stylesheet">
-        <script async defer src="https://api.mapbox.com/mapbox-assembly/v0.17.0/assembly.js"></script>
-        <style>
-            body { margin:0; padding:0; }
-            #map { position:absolute; top:0; bottom:0; width:100%; }
-        </style>
-    </head>
-    <body>
+<head>
+    <meta charset='utf-8' />
+    <title></title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css' rel='stylesheet' />
+    <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
+    <link href="https://api.mapbox.com/mapbox-assembly/v0.21.0/assembly.min.css" rel="stylesheet">
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
+</head>
+<body>
 
-        <div id='map'></div>
-        <div class='absolute p24 m24'>
-            <input type='number' name='radius' id='radius-number'>
-        </div>
 
-        <div class='map-overlay' id='features'></div>
-        <script>
-        mapboxgl.accessToken = 'pk.eyJ1IjoiY21jZzIiLCJhIjoiY2lxazNsejg0MDE2NWdia3ZmbzNpeWZ4MCJ9.KqUFqt2hTvgrxaBQyP9OqA';
-        var map = new mapboxgl.Map({
-            container: 'map', // container id
-            style: 'mapbox://styles/mapbox/light-v9', //stylesheet location
-            center: [-9.177, 6.219], // starting position
-            zoom: 6, // starting zoom
+<div id='map'></div>
+<div class='absolute px36 py36 w360'>
+    <input class='input inline-block bg-white w-full mb12' type='number' name='' id='radius-number'>
+    <button class='btn round inline-block w-full' id='show-buffer-button'>Show buffer</button>
+</div>
 
+<script>
+// Grab your Mapbox access token from your Account page.
+mapboxgl.accessToken = 'pk.eyJ1IjoiY21jZzIiLCJhIjoiY2lxazNsejg0MDE2NWdia3ZmbzNpeWZ4MCJ9.KqUFqt2hTvgrxaBQyP9OqA';
+
+// Initialize a map on the page.
+var map = new mapboxgl.Map({
+    container: 'map', // container id
+    style: 'mapbox://styles/mapbox/light-v9', //stylesheet location
+    center: [-8.806945, 6.218793], // starting position
+    zoom: 7 // starting zoom
+});
+
+// Wait until the map loads to start doing things.
+map.on('load', function(){
+    
+    // Add a new source with point data for all the 
+    // healthcare facilities in Liberia. 
+    map.addSource('health-care-facilities', {
+        type: "vector",
+        url: "mapbox://cmcg2.358k3iua"
+    });
+    
+    // Add a second empty source. This will later
+    // be updated to include polygons with a specified
+    // radius around each point.
+    map.addSource('health-radius', {
+        type: "geojson",
+        data: {
+            type: 'FeatureCollection',
+            features: []
+        }
+    });
+    
+    // Add a new circle layer with the facility 
+    // locations as the source data.
+    map.addLayer({
+        id: 'heath-care-facility-locations',
+        type: 'circle',
+        source: 'health-care-facilities',
+        "source-layer": "health-facilities-ci1yfs"
+    });
+
+
+    var showBufferButton = document.getElementById('show-buffer-button');
+    
+    // When the button is clicked, start the process of calculating
+    // and adding the radii to the map.
+    showBufferButton.addEventListener('click', function(){
+        // Get the value in the text input.
+        var radius = document.getElementById('radius-number').value;
+        // Get all the facilities in the vector tileset source.
+        var facilities = map.querySourceFeatures('health-care-facilities', {
+            sourceLayer: 'health-facilities-ci1yfs'
         });
-
-        map.on('load', function(){
-            map.addControl(new mapboxgl.ScaleControl({
-                maxWidth: 80,
-                unit: 'imperial'
-            }));
-
-            map.addLayer({
-                "id": "health-facilities",
-                "type": "circle",
-                "source": {
-                    "type": "vector",
-                    "url": "mapbox://cmcg2.358k3iua"
-                },
-                "source-layer": "health-facilities-ci1yfs",
-                "paint": {
-                    "circle-color": "#000",
-                    "circle-radius": 2
-                }
-            });
-
-            map.addSource('health-facilities-source', {
-                type: 'geojson',
-                data: {
-                    type: 'FeatureCollection',
-                    features: []
-                }
-            });
-
-            var radiusInput = document.getElementById('radius-number');
-            radiusInput.addEventListener('input', function(){
-                var facilities = map.queryRenderedFeatures({ layers: ['health-facilities'] });
-                var circles = [];
-                facilities.forEach(function(facility, e){
-                    var center = [facility.geometry.coordinates[0], facility.geometry.coordinates[1]];
-                    var radius = radiusInput.value;
-                    var steps = 20;
-                    var units = 'miles';
-                    var circle = turf.circle(center, radius, steps, units);
-                    circles.push(circle);
-                });
-
-                map.getSource('health-facilities-source').setData({
-                  type: 'FeatureCollection',
-                  features: circles
-                });
-
-                map.addLayer({
-                "id": "health-facility-radii",
-                "type": "fill",
-                "source": 'health-facilities-source',
-                "paint": {
-                    "fill-color": "rgba(0, 0, 0, 0.2)"
-                }
-                }, "health-facilities");        
-            });
+        // Iterate through all the facility data points.
+        var allFacilities = facilities.map(facility => {
+            // Create a point for each facility.
+            var point = turf.point([facility.geometry.coordinates[0], facility.geometry.coordinates[1]]);
+            // Create a polygon for with a radius defined by the input in miles.
+            var radii = turf.buffer(point, radius, {units: 'miles'});
+            // Return the polygon for each facility, resulting in an array of polygons.
+            return radii
         });
+        // Turn that array of polygons into a GeoJSON FeatureCollection.
+        var radiiLayer = turf.featureCollection(allFacilities);
+        // Get that empty source you made at the beginning and replace
+        // the data with the GeoJSON FeatureCollection with all the polygons.
+        map.getSource('health-radius').setData(radiiLayer);
+        // Add a new fill layer to the map using the polygons as the
+        // data source and a semi-transparent fill.
+        map.addLayer({
+            id: "health-radius",
+            type: "fill",
+            source: "health-radius",
+            paint: {
+                "fill-opacity": 0.5
+            }
+        });
+    });
+});
 
-        </script>
+</script>
 
-    </body>
+</body>
 </html>
