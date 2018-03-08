@@ -29,7 +29,7 @@ h1, h2, h3, p {
 
 p {
   font-size: 60px;
-  line-height: 80px; 
+  line-height: 80px;
 }
 
 ul.dark2 {
@@ -228,6 +228,7 @@ a.highlighter-blue-sm {
   text-align: left;
   font-size: 20%;
 }
+
 
 img.bg {
   /* Set rules to fill background */

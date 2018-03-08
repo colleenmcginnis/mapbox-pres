@@ -87,108 +87,25 @@
   </div>
   <div>To get started copy the code <a href="https://www.mapbox.com/mapbox-gl-js/example/simple-map/">within this example</a> and paste it into a new <a href="https://jsfiddle.net/">JSFiddle</a> project.
   </div>
-  <div class='textPadding'>
-    Adds HTML elements for map features
-    <xmp>
-      <div class='map-overlay' id='features'>
-        <h2>Households per health care facility:</h2>
-        <div id='inner-text'>Hover over a district!</div>
-      </div>
-      <div class='map-overlay' id='legend'></div>
-    </xmp>
+  <div>
+    <iframe height='175' scrolling='no' title='mxbLYB' src='//codepen.io/malwoodsantoro/embed/mxbLYB/?height=175&theme-id=dark&default-tab=html&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/malwoodsantoro/pen/mxbLYB/'>mxbLYB</a> by Mal Wood-Santoro (<a href='https://codepen.io/malwoodsantoro'>@malwoodsantoro</a>) on <a href='https://codepen.io'>CodePen</a>.
+    </iframe>
   </div>
   <div>
-    <h2>Adds style (CSS) for legend and box to show features</h2>
-    <xmp>
-      .map-overlay {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.8);
-            margin-right: 20px;
-            font-family: Arial, sans-serif;
-            overflow: auto;
-            border-radius: 3px;
-        }
-
-        #map {
-            position:absolute;
-            top:0;
-            bottom:0;
-            width:100%;
-        }
-
-        #features {
-            top: 0;
-            height: 200px;
-            margin-top: 20px;
-            width: 250px;
-        }
-
-        #legend {
-            padding: 10px;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.10);
-            line-height: 18px;
-            height: 175px;
-            margin-bottom: 40px;
-            width: 200px;
-        }
-
-        .legend-key {
-            display:inline-block;
-            border-radius: 20%;
-            width: 10px;
-            height: 10px;
-            margin-right: 5px;
-        }
-    </xmp>
+    <iframe height='265' scrolling='no' title='bvbKdm' src='//codepen.io/malwoodsantoro/embed/bvbKdm/?height=265&theme-id=dark&default-tab=css&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/malwoodsantoro/pen/bvbKdm/'>bvbKdm</a> by Mal Wood-Santoro (<a href='https://codepen.io/malwoodsantoro'>@malwoodsantoro</a>) on <a href='https://codepen.io'>CodePen</a>.
+    </iframe>
   </div>
-  <div class='textPadding'>
-    <h3>Adds box to show number of households per health care facility</h3>
-    <xmp>
-        map.on('load', function(){
-          map.on('mousemove', function (e) {
-            var households = map.queryRenderedFeatures(e.point, {
-              layers: ['households-per-facility']
-            });
-
-            if (households.length > 0) {
-              document.getElementById('pd').innerHTML = "<h3><strong>" +
-                households[0].properties.DNAME + "</strong></h3><p><strong><em>" +
-                  households[0].properties.hh_per_fac + "</strong> households per
-                   health care facility</em></p>";
-                } else {
-                  document.getElementById('pd').innerHTML = '<p>Hover over a district!</p>';
-                }
-              })
-            });
-    </xmp>
-  </div>
+  <div>
+    <iframe height='265' scrolling='no' title='YaKvWE' src='//codepen.io/malwoodsantoro/embed/YaKvWE/?height=265&theme-id=dark&default-tab=js&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/malwoodsantoro/pen/YaKvWE/'>YaKvWE</a> by Mal Wood-Santoro (<a href='https://codepen.io/malwoodsantoro'>@malwoodsantoro</a>) on <a href='https://codepen.io'>CodePen</a>.
+    </iframe>
+</div>
 <div>
-  Adds legend
-  <xmp>    // define layer names
-      var layers = ['0-700', '700-1400', '1400-2100', '2100-2800', '2800-3500', '3500-4200', '4200-4900', '4900-5600', '5600+'];
-      var colors = ['#f7fcfd', 'e0ecf4', '#bfd3e6', '#9ebcda', '#8c96c6', '#8c6bb1', '#88419d', '#810f7c', '#4d004b'];
-
-      // create legend
-      for (i=0; i<layers.length; i++) {
-          var layer = layers[i];
-          var color = colors[i];
-          var item = document.createElement('div');
-          var key = document.createElement('span');
-          key.className = 'legend-key';
-          key.style.backgroundColor = color;
-
-          var value = document.createElement('span');
-          value.innerHTML = layer;
-          item.appendChild(key);
-          item.appendChild(value);
-          legend.appendChild(item);
-      }</xmp>
+  <iframe height='319' scrolling='no' title='PRYaZa' src='//codepen.io/malwoodsantoro/embed/PRYaZa/?height=319&theme-id=dark&default-tab=js&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/malwoodsantoro/pen/PRYaZa/'>PRYaZa</a> by Mal Wood-Santoro (<a href='https://codepen.io/malwoodsantoro'>@malwoodsantoro</a>) on <a href='https://codepen.io'>CodePen</a>.
+  </iframe>
 </div>
     <!--Turf.js -->
     <div>
-      <p>Use Turf.js to do analysis in the browser</p> 
+      <p>Use Turf.js to do analysis in the browser</p>
       <iframe src='/demo/analysis/index.html'></iframe>
     </div>
     <div>
