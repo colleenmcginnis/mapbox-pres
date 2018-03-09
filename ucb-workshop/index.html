@@ -19,10 +19,13 @@
   from <a href='https://www.mapbox.com/' class='highlighter'>Mapbox</a></ul></div>
 
   <!-- WORKSHOP INTRO-->
-  <div><ul>Follow along <a class='highlighter' href="http://bit.ly/2eKiF0x">http://bit.ly/2eKiF0x</a></ul></div>
+  <div>
+    <p>Follow along</p> 
+    <p><a class='highlighter' href="http://bit.ly/2eKiF0x">http://bit.ly/2eKiF0x</a></p>
+  </div>
   <div>This workshop will cover:
     <ul class='norm'>
-      <li>What's possible with Mapbox </li>
+      <li>What's possible with Mapbox</li>
       <li>Make a map</li>
       <li>Add some interactivity to it</li>
       <li>Talk about geospatial analysis in the browser</li>
@@ -30,12 +33,17 @@
   </div>
 
   <!-- What's possible with Mapbox -->
-  <div>Mapbox wants to change the way people <em>navigate cities</em> and <em>understand<br>our planet.</em></div>
-  <div>We do this by providing <em>building blocks</em> for integrating brand and location into any <em>mobile</em> or <em>online</em> app.</a></div>
+  <div>
+    Mapbox wants to change the way people <em>navigate cities</em> and <em>understand<br>our planet.</em>
+  </div>
+  
+  <div>
+    We do this by providing <em>building blocks</em> for integrating brand and location into any <em>mobile</em> or <em>online</em> app.</a>
+  </div>
 
   <!--Customer examples -->
   <div><img class='norepeat' src='../images/instacart.png'></div>
-    <div><img class='norepeat' src='../images/tableau.png'></div>
+  <div><img class='norepeat' src='../images/tableau.png'></div>
   <div><img class='norepeat' src='../images/nps.png'></div>
   <div><img class='norepeat' src='../images/lonely-planet.png'></div>
 
@@ -65,11 +73,13 @@
     <h3>Here's what you'll be making today.</h3>
     <iframe src='/demo/choropleth/'></iframe>
   </div>
-  <div>Here's what you'll need to get started:<ul>
-    <li>Sign up for a <a href='https://www.mapbox.com/studio'>Mapbox Studio account</a></li>
-    <li>Download <a href='./households_per_facility.geojson' download>GeoJSON data</a></li>
-  </ul></div>
-
+  <div>
+    <h3>Here's what you'll need to get started:</h3>
+    <ul>
+      <li>Sign up for a <a href='https://www.mapbox.com/studio' target='_blank'>Mapbox Studio account</a></li>
+      <li>Download <a href='./households_per_facility.geojson' download>GeoJSON data</a></li>
+    </ul>
+  </div>
     <!--Overview of Mapbox Studio -->
     <!-- No slides needed ✅ -->
 
@@ -77,15 +87,15 @@
     <!-- No slides needed ✅ -->
 
     <!-- Add some interaction with GL JS-->
-  <div>Add interactivity using <em>Mapbox GL JS</em>, our Javascript library</div>
+  <div>Add interactivity using <em>Mapbox GL JS</em>, our JavaScript library</div>
   <div>
-    <ol> What we will building:
-      <li>Display showing the # of households per facility when you hover over each district </li>
-      <li>A legend to describing what the colors represent </li>
+    <ol> What we will be building:
+      <li>Display showing the number of households per facility when you hover over each district</li>
+      <li>A legend to describing what the colors represent</li>
     </ol>
     <img class='mid center' src='../images/gl-js-features.png'>
   </div>
-  <div>To get started copy the code <a href="https://www.mapbox.com/mapbox-gl-js/example/simple-map/">within this example</a> and paste it into a new <a href="https://jsfiddle.net/">JSFiddle</a> project.
+  <div>To get started copy the code <a href="https://www.mapbox.com/mapbox-gl-js/example/simple-map/" target='_blank'>in this example</a> and paste it into a new <a href="https://jsfiddle.net/" target='_blank'>JSFiddle</a> project.
   </div>
   <div>
     <iframe height='175' scrolling='no' title='mxbLYB' src='//codepen.io/malwoodsantoro/embed/mxbLYB/?height=175&theme-id=dark&default-tab=html&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/malwoodsantoro/pen/mxbLYB/'>mxbLYB</a> by Mal Wood-Santoro (<a href='https://codepen.io/malwoodsantoro'>@malwoodsantoro</a>) on <a href='https://codepen.io'>CodePen</a>.
@@ -129,8 +139,8 @@
     <ul>
       <li><a href='https://www.mapbox.com/mapbox-gl-js/'>Mapbox GL JS documentation</a></li>
       <li><a href='https://www.mapbox.com/mapbox-gl-js/examples/'>Mapbox GL JS examples</a></li>
-      <li><a href='https://www.mapbox.com/help/choropleth-studio-gl-pt-1/'>Tutorial: Make a choropleth map, Part 1</a></li>
-      <li><a href='https://www.mapbox.com/help/choropleth-studio-gl-pt-2/'>Tutorial: Make a choropleth map, Part 2</a></li>
+      <li><a href='https://www.mapbox.com/help/choropleth-studio-gl-pt-1/'>Tutorial: Make a choropleth map Part 1</a></li>
+      <li><a href='https://www.mapbox.com/help/choropleth-studio-gl-pt-2/'>Tutorial: Make a choropleth map Part 2</a></li>
     </ul>
   </div>
   <div>
@@ -141,18 +151,4 @@
     </ul>
   </div>
 </body>
-
-<script type="text/javascript">
-  var _gauges = _gauges || [];
-  (function() {
-    var t   = document.createElement('script');
-    t.type  = 'text/javascript';
-    t.async = true;
-    t.id    = 'gauges-tracker';
-    t.setAttribute('data-site-id', '4e36eb1ef5a1f53d6f000001');
-    t.src = '//secure.gaug.es/track.js';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(t, s);
-  })();
-</script>
 </html>
